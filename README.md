@@ -23,7 +23,7 @@
 #### 第四个：go get google.golang.org/grpc      被墙了,可以手动下载 https://github.com/grpc/grpc-go
 #### 下载后将目录改 GO 的目录规则，后再运行 go get google.golang.org/grpc
 
-![Image text](https://github.com/laixhe/go_grpc/grpc-go.png)
+![Image text](https://github.com/laixhe/go_grpc/blob/master/grpc-go.png)
 
 #### 然后没了
 
