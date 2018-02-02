@@ -3,7 +3,7 @@ package main
 import (
 	"net"
 
-	pb "xuexi_grpc/xuexitest" // 引入编译生成的包
+	pb "go_grpc/xuexitest" // 引入编译生成的包
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
