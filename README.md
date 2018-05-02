@@ -2,7 +2,9 @@
 
 ### simple 简单例子
 > client 客户端
+
 > server 服务端
+
 > simple.proto
 
 ## 安装步骤
@@ -15,6 +17,7 @@
 
 ### 二、安装 protoc-gen-go
 > go get github.com/golang/protobuf
+
 > go get github.com/golang/protobuf/protoc-gen-go
 
 ### 三、安装 grpc-go (已经打包在 vendor 中了)
