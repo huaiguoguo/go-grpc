@@ -8,13 +8,14 @@
 ### 一、安装 protobuf (protoc)
 #### 下载地址：https://github.com/google/protobuf
 #### 主要用于编写好的 protobuf 文件，生成于 go 文件
-#### 命令(在protobuf文件的目录)： protoc --go_out=plugins=grpc:. test.proto
+#### 命令(在protobuf文件的目录)：
+> protoc --go_out=plugins=grpc:. test.proto
 
 ### 二、安装 protoc-gen-go
 #### go get github.com/golang/protobuf
 #### go get github.com/golang/protobuf/protoc-gen-go
 
-### 三、安装 grpc-go
+### 三、安装 grpc-go (已经打包在 vendor 中了)
 
 #### 有三个依赖和本身也被墙了，可以采用手动下载，Github 有。
 #### 第一个：go get godoc.org/golang.org/x/net  被墙了,可以手动下载 https://github.com/golang/net
