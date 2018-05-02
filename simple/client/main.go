@@ -29,7 +29,7 @@ func main() {
 	//初始化客户端
 	client := pb.NewSimpleClient(conn)
 
-	//初始化 TestRequest 请求结构
+	//初始化 SimpleRequest 请求结构
 	reqBody := &pb.SimpleRequest{Typeid:10}
 
 	//调用客户端 SayTest 方法
