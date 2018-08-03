@@ -1,0 +1,37 @@
+syntax = "proto3";	// 指定proto版本
+
+package simple;	    // 指定包名
+
+// 定义 User 服务
+service User {
+    // 定义 GetUser 方法
+    rpc GetUser(UserRequest) returns (UserModel) {}
+    // 定义 GetUserList 方法
+    rpc GetUserList(UserRequest) returns (UserListResponse) {}
+    // 定义 SetUser 方法
+    rpc SetUser(UserModel) returns (UserResponse){}
+}
+
+// User 的数据模型
+message UserModel {
+    int64  userid   = 1;
+    string username = 2;
+}
+
+// 请求结构
+message UserRequest {
+    int64 userid = 1;
+}
+
+// 响应结构
+message UserResponse {
+    int32  code = 1;
+    string msg  = 2;
+}
+
+// 响应结构
+message UserListResponse {
+
+	// repeated 重复(数组)
+	repeated UserModel user_list = 1;
+}

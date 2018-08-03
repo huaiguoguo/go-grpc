@@ -1,0 +1,27 @@
+syntax = "proto3";	// 指定proto版本
+
+package simple;	    // 指定包名
+
+// 定义 UserInfo 服务
+service UserInfo {
+    rpc GetUserInfo(UserInfoRequest) returns (UserInfoModel) {}
+    rpc SetUserInfo(UserInfoModel) returns (UserInfoResponse) {}
+}
+
+// UserInfo 的数据模型
+message UserInfoModel {
+    int64  userid   = 1;
+    string username = 2;
+    int32  age      = 3;
+}
+
+// 请求结构
+message UserInfoRequest {
+    int64 userid = 1;
+}
+
+// 响应结构
+message UserInfoResponse {
+    int32  code = 1;
+    string msg  = 2;
+}

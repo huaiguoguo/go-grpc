@@ -4,11 +4,10 @@ import (
 	"log"
 
 	// 引入 proto 编译生成的包
-	pb "github.com/laixhe/go_grpc/simple"
+	pb "github.com/laixhe/go-grpc/simple"
 
-	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-
+	"net/http"
 )
 
 const (
@@ -16,31 +15,36 @@ const (
 	Address = "127.0.0.1:50051"
 )
 
-func main() {
+var UClient pb.UserClient
+
+var UIClient pb.UserInfoClient
+
+func init() {
 
 	// 连接服务端
 	conn, err := grpc.Dial(Address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalln(err)
 	}
-	//关闭连接
+	// 关闭连接
 	defer conn.Close()
 
-	//初始化客户端
-	client := pb.NewSimpleClient(conn)
+	// 初始化 User 客户端
+	UClient = pb.NewUserClient(conn)
 
-	//初始化 SimpleRequest 请求结构
-	reqBody := &pb.SimpleRequest{Typeid:10}
+	// 初始化 UserInfo 客户端
+	UIClient = pb.NewUserInfoClient(conn)
 
-	//调用客户端 SayTest 方法
-	r, err := client.SayTest(context.Background(), reqBody)
-	if err != nil {
-		log.Fatalln(err)
-	}
+}
 
-	for _, v := range r.UserList {
-		log.Println(v)
-	}
+// 启动 http 服务
+func main(){
 
+	http.HandleFunc("/user/get", GetUser)
+	http.HandleFunc("/user/get/list", GetUserList)
+	http.HandleFunc("/user/set", SetUser)
+	http.HandleFunc("/userinfo/get", GetUserInfo)
+	http.HandleFunc("/userinfo/set", SetUserInfo)
 
+	http.ListenAndServe(":8080", nil)
 }
