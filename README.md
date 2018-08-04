@@ -7,15 +7,13 @@
 
 > test_proto 编解码 protobuf 例子
 
-> simple.proto
-
 ## 安装步骤
 
 ### 一、安装 protobuf (protoc)
-#### 下载地址：https://github.com/google/protobuf
+#### 下载地址：https://github.com/google/protobuf 下载对平台的二进制文件就行
 #### 主要用于编写好的 protobuf 文件，生成于 go 文件
 #### 命令(在protobuf文件的目录)：
-> protoc --go_out=plugins=grpc:. test.proto
+> protoc --go_out=plugins=grpc:. xxx.proto
 
 ### 二、安装 protoc-gen-go
 > go get github.com/golang/protobuf

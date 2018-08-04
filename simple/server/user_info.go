@@ -14,6 +14,8 @@ func (this *UserInfo) GetUserInfo (ctx context.Context, ut *pb.UserInfoRequest) 
 
 	// 待返回数据结构
 	resp := new(pb.UserInfoModel)
+	resp.Userid = ut.Userid
+	resp.Username = "GetUserInfo"
 
 	return resp, nil
 }
@@ -22,6 +24,8 @@ func (this *UserInfo) SetUserInfo (ctx context.Context, ut *pb.UserInfoModel) (*
 
 	// 待返回数据结构
 	resp := new(pb.UserInfoResponse)
+	resp.Code = int32(ut.Userid)
+	resp.Msg = ut.Username
 
 	return resp, nil
 }

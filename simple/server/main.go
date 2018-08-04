@@ -29,7 +29,7 @@ func main() {
 	// 注册 UserInfo service
 	pb.RegisterUserInfoServer(serverGrpc, &UserInfo{})
 
-	log.Println("开始监听端口 0.0.0.0:50051")
+	log.Println("开始监听 Grpc 端口 0.0.0.0:50051")
 
 	// 启动服务
 	err = serverGrpc.Serve(listen)
